@@ -13,21 +13,20 @@ public class RagdollNode {
     public RagdollNode(Vec3 initialPos) {
         this.pos = initialPos;
         this.oldPos = initialPos;
-        this.accel = new Vec3(0, -0.08, 0); // Vanilla Minecraft gravity
+        this.accel = new Vec3(0, -0.08, 0);
         this.isPinned = false;
     }
 
     public void update(Level level) {
         if (isPinned) return;
 
-        Vec3 velocity = pos.subtract(oldPos).scale(0.98); // 0.98 air resistance dampening
+        Vec3 velocity = pos.subtract(oldPos).scale(0.98);
         oldPos = pos;
         pos = pos.add(velocity).add(accel);
 
-        // Simple terrain collision check against world block hitboxes
         AABB box = new AABB(pos.x - 0.1, pos.y - 0.1, pos.z - 0.1, pos.x + 0.1, pos.y + 0.1, pos.z + 0.1);
         if (!level.noCollision(box)) {
-            pos = new Vec3(pos.x, oldPos.y, pos.z); // Resolve vertical collision
+            pos = new Vec3(pos.x, oldPos.y, pos.z);
         }
     }
 
