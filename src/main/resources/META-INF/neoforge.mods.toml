@@ -1,10 +1,10 @@
 modLoader="javafml"
-loaderVersion="[4,)"
-license="MIT"
+loaderVersion="${loader_version_range}"
+license="${mod_license}"
 
 [[mods]]
-modId="ragdoll"
-version="${file.jarVersion}"
-displayName="Ragdoll Mod"
+modId="${mod_id}"
+version="${mod_version}"
+displayName="${mod_name}"
 authors="Developer"
 description="Custom physics ragdoll mod."
