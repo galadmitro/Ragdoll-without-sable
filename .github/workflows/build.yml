@@ -28,3 +28,10 @@ jobs:
 
       - name: Build with Gradle
         run: ./gradlew build --no-daemon
+
+      - name: Upload Build Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: ragdoll-mod-1.21.1
+          path: build/libs/*.jar
+          if-no-files-found: error
